@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Button, Input, Stack, Text, Field } from "@chakra-ui/react";
+import { Box, Button, Input, Stack, Field } from "@chakra-ui/react";
 import { useState } from "react";
 import { toaster } from "../ui/toaster";
 import { useRouter } from "next/navigation";
@@ -33,14 +33,13 @@ export default function StudentForm({ initialData }: Props) {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    let res;
     e.preventDefault();
     setLoading(true);
     try {
       if (initialData) {
-        res = await updateStudent(formData, initialData?.id!);
+        await updateStudent(formData, initialData.id!);
       } else {
-        res = await addNewStudent(formData);
+        await addNewStudent(formData);
       }
       toaster.create({
         description: "Student updated successfully",

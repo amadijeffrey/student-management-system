@@ -7,6 +7,7 @@ import { toaster } from "@/components/ui/toaster";
 import * as nextNavigation from "next/navigation";
 import { Provider } from "@/components/ui/provider";
 import { beforeEach, describe } from "node:test";
+import { addNewStudent, updateStudent } from "@/services/student-service";
 
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
@@ -75,7 +76,7 @@ describe("StudentForm", () => {
   });
 
   it("submits new student successfully", async () => {
-    (AddNewStudent as jest.Mock).mockResolvedValueOnce({ success: true });
+    (addNewStudent as jest.Mock).mockResolvedValueOnce({ success: true });
 
     render(
       <Provider>
@@ -104,7 +105,7 @@ describe("StudentForm", () => {
     fireEvent.click(screen.getByRole("button", { name: /Add Student/i }));
 
     await waitFor(() => {
-      expect(AddNewStudent).toHaveBeenCalledWith({
+      expect(addNewStudent).toHaveBeenCalledWith({
         name: "Jane Doe",
         registrationNumber: "67890",
         major: "Math",
@@ -116,7 +117,7 @@ describe("StudentForm", () => {
   });
 
   it("calls UpdateStudent in edit mode", async () => {
-    (UpdateStudent as jest.Mock).mockResolvedValueOnce({ success: true });
+    (updateStudent as jest.Mock).mockResolvedValueOnce({ success: true });
 
     const initialData = {
       id: "abc123",
@@ -140,7 +141,7 @@ describe("StudentForm", () => {
     fireEvent.click(screen.getByRole("button", { name: /Update Student/i }));
 
     await waitFor(() => {
-      expect(UpdateStudent).toHaveBeenCalledWith(
+      expect(updateStudent).toHaveBeenCalledWith(
         expect.objectContaining({ name: "New Name" }),
         "abc123"
       );

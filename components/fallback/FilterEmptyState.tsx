@@ -9,7 +9,7 @@ export const FilterEmptyState = ({ text }: { text: string }) => {
                     <HiColorSwatch />
                 </EmptyState.Indicator>
                 <VStack textAlign="center">
-                    <EmptyState.Title>No results found for '{text}'</EmptyState.Title>
+                    <EmptyState.Title>{`No results found for ${text}`}</EmptyState.Title>
                     <EmptyState.Description>
                         Try adjusting your search
                     </EmptyState.Description>

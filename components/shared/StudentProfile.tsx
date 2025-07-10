@@ -1,10 +1,10 @@
 "use client"
 
 
-import { Box, Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
-import { useRouter } from "next/navigation";
+import { Box, Flex, Stack, Text } from "@chakra-ui/react";
+
 import React from "react";
-import { RiArrowLeftLine } from "react-icons/ri";
+
 
 import { Student } from "@/types/students";
 import HeaderWithBackButton from "./HeaderWithButton";

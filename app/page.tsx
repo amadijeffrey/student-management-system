@@ -7,11 +7,9 @@ import {
   Flex,
   Box,
   Input,
-  Checkbox,
   Stack,
   Button,
   Heading,
-  Text,
   Field,
   InputGroup,
 } from "@chakra-ui/react";
@@ -29,7 +27,7 @@ export default function Home() {
   const [loading, setLoading] = React.useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -37,11 +35,10 @@ export default function Home() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    let res;
     e.preventDefault();
     setLoading(true);
     try {
-      res = await loginUser(formData);
+      await loginUser(formData);
 
       toaster.create({
         description: "Welcome Back!",

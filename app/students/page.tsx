@@ -61,7 +61,7 @@ const StudentPage = () => {
       setStudents((prev) => prev.filter((s) => s.id !== id));
       toaster.create({ description: "Student deleted", type: "success" });
     } catch (error) {
-      toaster.create({ description: "Error deleting student", type: "error" });
+      toaster.create({ description: `Error deleting student ${error}`, type: "error" });
     } finally {
       setIsDeleting(false);
     }

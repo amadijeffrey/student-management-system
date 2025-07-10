@@ -1,4 +1,4 @@
-import { Button, CloseButton, Group, Input, InputGroup } from "@chakra-ui/react"
+import { CloseButton, Group, Input, InputGroup } from "@chakra-ui/react"
 import React from "react";
 
 interface FilterInputProps {

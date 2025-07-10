@@ -13,10 +13,9 @@ import { MdMenu, MdClose, MdLogout } from "react-icons/md";
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa";
 import { usePathname, useRouter } from "next/navigation";
-import { isLoggedIn } from "@/lib/authStore";
 
 import { toaster } from "../ui/toaster";
-import React, { useEffect } from "react";
+import React from "react";
 import { logoutUser } from "@/services/user-service";
 
 const Links = [{ label: "Students", href: "/students" }];
@@ -81,11 +80,6 @@ export default function NavBar() {
           <Box fontWeight="bold" display={{ base: "none", md: "block" }}>
             Student Manager
           </Box>
-          {/* <HStack as="nav" display={{ base: "none", md: "flex" }}>
-            {Links.map((link) => (
-              <NavLink key={link.label} {...link} />
-            ))}
-          </HStack> */}
         </HStack>
         <Flex align={"center"}>
           {isOnNewStudentPage || (
